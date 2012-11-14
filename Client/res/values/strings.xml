@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Betapresenter</string>
+    
+    <!-- Logo -->
+    <string name="logoText">&#223;</string>
+    
+    <!-- Buttons -->
+    <string name="leftButton">Prev</string>
+    <string name="rightButton">Next</string>
+    <string name="startButton">Start</string>
+    <string name="resetButton">Reset</string>
+    
+    <!-- Menu -->
+    <string name="prefsMenu">Preferences</string>
+    
+    <!-- Preferences -->
+    <string name="ip">IP</string>
+    <string name="port">Port</string>
+    <string name="defaultIp">192.168.1.100</string>
+    <string name="defaultPort">8888</string>
+
+</resources>

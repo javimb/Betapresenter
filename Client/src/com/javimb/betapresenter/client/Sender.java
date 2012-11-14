@@ -1,0 +1,85 @@
+package com.javimb.betapresenter.client;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+
+import android.util.Log;
+
+public class Sender {
+	public static final String LOG_TAG = "Betapresenter";
+	private String ip;
+	private int port;
+	private String code;
+	//private int code;
+	private Thread thread;
+	private Socket socket;
+	private DataOutputStream dataOutputStream;
+	
+	/**
+	 * 
+	 * @param code
+	 * 0: Close server
+	 * 1: Left
+	 * 2: Right
+	 */
+	public Sender(String ip, int port, String code) {
+		this.ip = ip;
+		this.port = port;
+		this.code = code;
+		send();
+	}
+	/*public Sender(String ip, int port, int code) {
+		this.ip = ip;
+		this.port = port;
+		this.code = code;
+		send();
+	}*/
+	
+	private void send(){
+		thread = new Thread(new Runnable() {
+			public void run()
+			{
+				try {
+					DatagramSocket clientSocket = new DatagramSocket();
+					byte[] sendData = new byte[1];
+					sendData = code.getBytes();
+					DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName(ip), port);
+					clientSocket.send(sendPacket);
+					clientSocket.close();
+				} catch (SocketException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnknownHostException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				/*try {
+					socket = new Socket(ip, port);
+				} catch (Exception e) {
+					Log.i(LOG_TAG, "Connection error");
+					
+					return;
+				}
+				try {
+					dataOutputStream = new DataOutputStream(socket.getOutputStream());
+					dataOutputStream.writeInt(code);
+					socket.close();
+					dataOutputStream.close();
+				} catch (Exception e) {
+					Log.i(LOG_TAG, "Sending error");
+				}*/
+			}
+		});
+		thread.start();
+	}
+}

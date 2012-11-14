@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="#ef4444">
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <Chronometer 
+        	android:layout_width="0dp"
+        	android:layout_weight="1"
+        	android:layout_height="wrap_content"
+        	style="@style/ChronoStyle"
+        	android:id="@+id/chrono"/>
+        
+        <Button 
+        	android:layout_height="wrap_content"
+        	android:layout_width="wrap_content"
+        	android:background="@drawable/betabeers_style_button"
+        	style="@style/ChronoButton"
+        	android:text="@string/startButton"
+        	android:id="@+buttons/start"/>
+        
+        <Button 
+        	android:layout_height="wrap_content"
+        	android:layout_width="wrap_content"
+        	android:background="@drawable/betabeers_style_button"
+        	style="@style/ChronoButton"
+        	android:text="@string/resetButton"
+        	android:id="@+buttons/reset"/>
+        
+    </LinearLayout>
+    
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        style="@style/Logo"
+        android:text="@string/logoText"
+        android:id="@+id/logo"/>
+     
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        
+        <Button 
+        	android:layout_height="fill_parent"
+        	android:layout_width="0dp"
+        	android:layout_weight="1"
+        	android:background="@drawable/betabeers_style_button"
+        	style="@style/SlideButton"
+        	android:text="@string/leftButton"
+        	android:id="@+buttons/left"/>
+    
+    	<Button 
+        	android:layout_height="fill_parent"
+        	android:layout_width="0dp"
+        	android:layout_weight="1"
+        	android:background="@drawable/betabeers_style_button"
+        	style="@style/SlideButton"
+        	android:text="@string/rightButton"
+        	android:id="@+buttons/right"/>
+        
+    </LinearLayout>
+    
+</LinearLayout>
